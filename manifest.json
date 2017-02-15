@@ -1,0 +1,29 @@
+{
+  "name": "hpaBuddy",
+  "short_name": "hpaBuddy",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "extension to check hotel prices.",
+  "browser_action": {
+    "default_icon": "case.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "https://hpamvt.corp.google.com/*", "https://apis.google.com/js/client.js", "https://accounts.google.com/o/oauth2/token", "https://content-sheets.googleapis.com/v4/spreadsheets/*","idle","identity","identity.email"],
+
+  "content_scripts": [
+  {
+    "matches": ["https://hpamvt.corp.google.com/*"],
+    "js": ["write.js", "jquery-3.1.1.min.js" ],
+    "run_at": "document_start"
+  }
+	],
+  "oauth2": {
+    "client_id": "14806378689-eaah7ik8tgmc0tg8vkq7tomaaudotcaf.apps.googleusercontent.com",
+    "scopes": [
+
+        "https://www.googleapis.com/auth/spreadsheets"
+    ]
+	},
+	"content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'"
+
+}

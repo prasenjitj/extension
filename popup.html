@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="popup.js" type="text/javascript">
+        </script>
+        <script src="https://apis.google.com/js/client.js?onload=checkAuth" type="text/javascript">
+        </script>
+        <script src="write.js" type="text/javascript">
+        </script>
+        <style type="text/css">
+            select{
+                  width:200px;
+                  align:right;
+            }
+
+            th{
+                text-align: left;
+                width:200px;
+            }
+            table {
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            tr:nth-child(even){background-color: #f2f2f2}
+        </style>
+        <title>
+        </title>
+    </head>
+<body>
+    <div class="main">
+        <div id="message">
+            <textarea id="hide" name="hide" style="display:none;">
+            </textarea>
+        </div>
+        <div class="wrapper">
+            <div id="demo">
+            </div>
+        </div>
+        <div id="hard_coded_message">
+            <form action="" id="popup">
+                <table>
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Value
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                Case type
+                            </b>
+                        </td>
+                        <td>
+                            <select id="t1">
+                                <option value="Auto Generated Alerts">
+                                    Auto Generated Alerts
+                                </option>
+                                <option value="External Support">
+                                    External Support
+                                </option>
+                                <option value="Internal Consults">
+                                    Internal Consults
+                                </option>
+                                <option value="Forger Alerts">
+                                    Forger Alerts
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                Shift
+                            </b>
+                        </td>
+                        <td>
+                            <select id="t2">
+                                <option value="S1">
+                                    S1
+                                </option>
+                                <option value="S2">
+                                    S2
+                                </option>
+                                <option value="S3">
+                                    S3
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                Incoming Queue
+                            </b>
+                        </td>
+                        <td>
+                            <select id="t3">
+                                <option value="SES2.0 alerts">
+                                    SES2.0 alerts
+                                </option>
+                                <option value="Internal Consults">
+                                    Internal Consults
+                                </option>
+                                <option value="External Consults">
+                                    External Consults
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                Phone call
+                            </b>
+                        </td>
+                        <td>
+                            <select id="t4">
+                                <option value="Not Required">
+                                    Not Required
+                                </option>
+                                <option value="Made & spoke to someone">
+                                    Made & spoke to someone
+                                </option>
+                                <option value="Made & Left a VM">
+                                    Made & Left a VM
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                Action Taken
+                            </b>
+                        </td>
+                        <td>
+                            <select id="t5">
+                                <option value="Routed to Platinum Support">
+                                    Routed to Platinum Support
+                                </option>
+                                <option value="Routed to Advanced Vendor Support">
+                                    Routed to Advanced Vendor Support
+                                </option>
+                                <option value="Routed to Escalation Support">
+                                    Routed to Escalation Support
+                                </option>
+                                <option value="Routed to In-Flight Suppor">
+                                    Routed to Escalation Support
+                                </option>
+                                <option value="Routed to  Optimization Escalation">
+                                    Routed to Optimization Escalation
+                                </option>
+                                <option value="Routed to Optimization Vendors Queue">
+                                    Routed to Optimization Vendors Queue
+                                </option>
+                                <option value="Routed to Campaign Manager - East">
+                                    Routed to Campaign Manager - East
+                                </option>
+                                <option value="Routed to Campaign Manager - West">
+                                    Routed to Campaign Manager - West
+                                </option>
+                                <option value="Routed to Campaign Manager - Europe">
+                                    Routed to Campaign Manager - Europe
+                                </option>
+                                <option value="Routed to Campaign Manager - Vendors">
+                                    Routed to Campaign Manager - Vendors
+                                </option>
+                                <option value="Solution Offered and closed">
+                                    Solution Offered and closed
+                                </option>
+                                <option value="Duplicate">
+                                    Duplicate
+                                </option>
+                                <option value="Spam">
+                                    Spam
+                                </option>
+                                <option value="In-Flight">
+                                    In-Flight
+                                </option>
+                                <option value="gTech Ads TSM Support">
+                                    gTech Ads TSM Support
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                    <b>
+                        Additional Remarks (if any))
+                    </b>
+                    <textarea cols="50" id="t6" rows="4" style="text-align: left;">
+                    </textarea>
+                    <br>
+                        <input id="submit-button" onclick="disableButton(this)" type="button" value="submit">
+                    </br>
+                </br>
+            </form>
+        </div>
+    </div>
+</body>
+<div id="msg">
+    <p id="success_message">
+    </p>
+</div>
+<div id="authorize-div" style="display: none">
+    <span>
+        Authorize access to Google Sheets API
+    </span>
+    <!--Button for the user to click to initiate auth sequence -->
+    <button id="authorize-button">
+        Authorize
+    </button>
+</div>
+<pre id="output"></pre>
+</html>
